@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MRU Student Services Homepage</title>
+
+    <style>
+
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #123b70;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: #e67e22;
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #123b70;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(
+                rgba(0,0,0,0.6),
+                rgba(0,0,0,0.6)
+            ),
+            url("https://images.unsplash.com/photo-1562774053-701939374585")
+            center/cover;
+
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            animation: slideDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 18px;
+            animation: fadeIn 2s ease;
+        }
+
+        .hero button {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .hero button:hover {
+            background: #d35400;
+        }
+
+        /* Animation */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #123b70;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        /* Services Grid */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        /* Service Cards */
+        .card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #123b70;
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #123b70;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: #e67e22;
+        }
+
+        /* Notice Section */
+        .notice {
+            background: white;
+            padding: 25px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .notice h2 {
+            color: #123b70;
+            margin-bottom: 20px;
+        }
+
+        .notice p {
+            background: #fff4e5;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #e67e22;
+        }
+
+        /* About Section */
+        .about {
+            background: #eaf1fa;
+            padding: 35px;
+            margin-top: 35px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #123b70;
+            margin-bottom: 15px;
+        }
+
+        .about p {
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #123b70;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+            header h1 {
+                font-size: 23px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .hero {
+                padding: 65px 15px;
+            }
+
+            .hero h2 {
+                font-size: 23px;
+            }
+
+            .container h2 {
+                font-size: 23px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>MALLA REDDY UNIVERSITY</h1>
+        <p>Student Services Homepage</p>
+        <p>Learn | Grow | Achieve</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#notices">Notifications</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <h2>Welcome to Student Services</h2>
+
+        <p>
+            Access all university services in one place.
+            Your academic journey starts here!
+        </p>
+
+        <button onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+            Explore Services
+        </button>
+
+    </section>
+
+    <!-- Student Services -->
+    <main class="container" id="services">
+
+        <h2>Our Student Services</h2>
+
+        <div class="services">
+
+            <!-- Library -->
+            <div class="card">
+                <div class="icon">📚</div>
+
+                <h3>Library Services</h3>
+
+                <p>
+                    Access books, journals, digital libraries,
+                    study materials and other academic resources.
+                </p>
+
+                <a href="https://www.mallareddyuniversity.ac.in/"
+                   target="_blank">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Transport -->
+            <div class="card">
+                <div class="icon">🚌</div>
+
+                <h3>Transport Services</h3>
+
+                <p>
+                    Get information about university buses,
+                    transportation facilities and routes.
+                </p>
+
+                <a href="https://www.mallareddyuniversity.ac.in/"
+                   target="_blank">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Hostel -->
+            <div class="card">
+                <div class="icon">🏠</div>
+
+                <h3>Hostel Facilities</h3>
+
+                <p>
+                    Explore hostel accommodation,
+                    facilities, rules and student support.
+                </p>
+
+                <a href="https://www.mallareddyuniversity.ac.in/"
+                   target="_blank">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Placements -->
+            <div class="card">
+                <div class="icon">💼</div>
+
+                <h3>Placement Services</h3>
+
+                <p>
+                    Find placement information, career guidance,
+                    internship opportunities and training details.
+                </p>
+
+                <a href="https://www.mallareddyuniversity.ac.in/"
+                   target="_blank">
+                    Learn More
+                </a>
+            </div>
+
+            <!-- Examination -->
+            <div class="card">
+                <div class="icon">📝</div>
+
+                <h3>Examination Information</h3>
+
+                <p>
+                    Check examination schedules,
+                    results, notifications and academic updates.
+                </p>
+
+                <a href="https://www.mallareddyuniversity.ac.in/"
+                   target="_blank">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Notifications -->
+        <section class="notice" id="notices">
+
+            <h2>Latest Notifications</h2>
+
+            <p>
+                📢 Examination schedules and updates will be announced here.
+            </p>
+
+            <p>
+                📢 Students can check academic calendar information regularly.
+            </p>
+
+            <p>
+                📢 Stay updated with campus events and placement activities.
+            </p>
+
+            <p>
+                📢 Check transport and hostel announcements regularly.
+            </p>
+
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+
+            <h2>About Student Services</h2>
+
+            <p>
+                The Malla Reddy University Student Services Homepage
+                provides students with quick and easy access to
+                important university services. Students can find
+                information related to library, transport, hostel,
+                placements and examinations through a single webpage.
+                Our aim is to provide a simple, attractive and
+                user-friendly experience across all devices.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+
+        <h3>MALLA REDDY UNIVERSITY</h3>
+
+        <p>Student Services Homepage</p>
+
+        <p>Contact: Visit the official university website</p>
+
+        <p>&copy; 2026 Malla Reddy University. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+</html>
