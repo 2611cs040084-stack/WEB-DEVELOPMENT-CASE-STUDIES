@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRU Student Dashboard</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6fb;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background: #172554;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #172554, #2563eb);
+            color: white;
+            padding: 35px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
+
+        .dashboard-card {
+            border: none;
+            border-radius: 12px;
+            transition: 0.3s;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .card-icon {
+            font-size: 30px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            color: #172554;
+            margin-bottom: 18px;
+        }
+
+        .service-link {
+            text-decoration: none;
+            color: #172554;
+            display: block;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .service-link:hover {
+            background: #dbeafe;
+            transform: translateY(-3px);
+        }
+
+        .service-link span {
+            display: block;
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            padding: 18px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .progress {
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">🎓 MRU STUDENT PORTAL</a>
+
+        <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#attendance">Attendance</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#timetable">Timetable</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-warning btn-sm ms-lg-3"
+                        data-bs-toggle="modal" data-bs-target="#profileModal">
+                        My Profile
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="home">
+
+    <!-- WELCOME SECTION -->
+    <section class="hero">
+        <h2>Welcome, Student! 👋</h2>
+        <p class="mb-1">Malla Reddy University</p>
+        <p>Manage your academics and student services in one place.</p>
+        <button class="btn btn-light mt-2" onclick="showMessage()">
+            Explore Dashboard
+        </button>
+    </section>
+
+    <!-- ALERT -->
+    <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+        <strong>Announcement:</strong>
+        Mid-term examination schedules are now available.
+        <button type="button" class="btn-close"
+            data-bs-dismiss="alert"></button>
+    </div>
+
+    <!-- DASHBOARD CARDS -->
+    <h4 class="section-title mt-4">Student Overview</h4>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card dashboard-card p-3">
+                <div class="card-body">
+                    <div class="card-icon">📊</div>
+                    <h6>Attendance</h6>
+                    <h3 class="text-success">85%</h3>
+                    <div class="progress">
+                        <div class="progress-bar bg-success"
+                            style="width:85%"></div>
+                    </div>
+                    <small class="text-muted">Overall attendance</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card dashboard-card p-3">
+                <div class="card-body">
+                    <div class="card-icon">📚</div>
+                    <h6>Assignments</h6>
+                    <h3 class="text-primary">8/10</h3>
+                    <small class="text-muted">Completed assignments</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card dashboard-card p-3">
+                <div class="card-body">
+                    <div class="card-icon">💰</div>
+                    <h6>Fee Status</h6>
+                    <h3 class="text-danger">Pending</h3>
+                    <small class="text-muted">Demo fee reminder</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card dashboard-card p-3">
+                <div class="card-body">
+                    <div class="card-icon">📝</div>
+                    <h6>Examinations</h6>
+                    <h3 class="text-warning">Upcoming</h3>
+                    <small class="text-muted">Check exam schedule</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ATTENDANCE -->
+    <section id="attendance" class="mt-5">
+        <h4 class="section-title">Attendance Details</h4>
+
+        <div class="card dashboard-card p-4">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Classes Attended</th>
+                            <th>Total Classes</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>38</td>
+                            <td>42</td>
+                            <td class="text-success">90%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Java Programming</td>
+                            <td>35</td>
+                            <td>40</td>
+                            <td class="text-success">87.5%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Database Management</td>
+                            <td>32</td>
+                            <td>40</td>
+                            <td class="text-warning">80%</td>
+                        </tr>
+
+                        <tr>
+                            <td>Computer Networks</td>
+                            <td>34</td>
+                            <td>40</td>
+                            <td class="text-success">85%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMETABLE -->
+    <section id="timetable" class="mt-5">
+        <h4 class="section-title">Class Timetable</h4>
+
+        <div class="card dashboard-card p-4">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Day</th>
+                            <th>9:00 - 10:00</th>
+                            <th>10:00 - 11:00</th>
+                            <th>11:00 - 12:00</th>
+                            <th>1:00 - 2:00</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <th>Monday</th>
+                            <td>Maths</td>
+                            <td>Java</td>
+                            <td>DBMS</td>
+                            <td>Lab</td>
+                        </tr>
+
+                        <tr>
+                            <th>Tuesday</th>
+                            <td>Java</td>
+                            <td>Networks</td>
+                            <td>Maths</td>
+                            <td>DBMS</td>
+                        </tr>
+
+                        <tr>
+                            <th>Wednesday</th>
+                            <td>DBMS</td>
+                            <td>Maths</td>
+                            <td>Java</td>
+                            <td>Lab</td>
+                        </tr>
+
+                        <tr>
+                            <th>Thursday</th>
+                            <td>Networks</td>
+                            <td>Java</td>
+                            <td>DBMS</td>
+                            <td>Maths</td>
+                        </tr>
+
+                        <tr>
+                            <th>Friday</th>
+                            <td>Maths</td>
+                            <td>DBMS</td>
+                            <td>Networks</td>
+                            <td>Sports</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTIFICATIONS CAROUSEL -->
+    <section class="mt-5">
+        <h4 class="section-title">Academic Notifications</h4>
+
+        <div id="noticeCarousel" class="carousel slide"
+            data-bs-ride="carousel">
+
+            <div class="carousel-inner rounded">
+
+                <div class="carousel-item active">
+                    <div class="p-5 text-white text-center"
+                        style="background:#2563eb;">
+                        <h3>📢 Examination Notice</h3>
+                        <p>Check the examination timetable regularly.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-white text-center"
+                        style="background:#15803d;">
+                        <h3>📚 Library Notice</h3>
+                        <p>Return borrowed books before the due date.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="p-5 text-white text-center"
+                        style="background:#9333ea;">
+                        <h3>🎓 Placement Updates</h3>
+                        <p>Register for upcoming placement activities.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button"
+                data-bs-target="#noticeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next" type="button"
+                data-bs-target="#noticeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+        </div>
+    </section>
+
+    <!-- EXAM SCHEDULE -->
+    <section class="mt-5">
+        <h4 class="section-title">Examination Schedule</h4>
+
+        <div class="card dashboard-card p-4">
+            <div class="table-responsive">
+                <table class="table table-striped text-center">
+                    <thead class="table-primary">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>10-12-2026</td>
+                            <td>9:30 AM</td>
+                            <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>Java Programming</td>
+                            <td>12-12-2026</td>
+                            <td>9:30 AM</td>
+                            <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                        </tr>
+
+                        <tr>
+                            <td>DBMS</td>
+                            <td>15-12-2026</td>
+                            <td>9:30 AM</td>
+                            <td><span class="badge bg-warning text-dark">Upcoming</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEE REMINDER -->
+    <section class="mt-5">
+        <h4 class="section-title">Fee Reminder</h4>
+
+        <div class="alert alert-warning">
+            <h5>💰 Fee Payment Reminder</h5>
+            <p>Please check your pending fee details and contact the accounts department for assistance.</p>
+            <button class="btn btn-warning"
+                onclick="showFeeMessage()">
+                View Fee Details
+            </button>
+        </div>
+    </section>
+
+    <!-- STUDENT SERVICES -->
+    <section id="services" class="mt-5">
+        <h4 class="section-title">Student Services</h4>
+
+        <div class="row g-3">
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Library')">
+                    <span>📖</span>Library
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Transport')">
+                    <span>🚌</span>Transport
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Hostel')">
+                    <span>🏠</span>Hostel
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Placements')">
+                    <span>💼</span>Placements
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Examinations')">
+                    <span>📝</span>Exams
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2">
+                <a href="#" class="service-link" onclick="openService(event,'Student Support')">
+                    <span>☎️</span>Support
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROFILE MODAL -->
+    <div class="modal fade" id="profileModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Student Profile</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <h5>Student Information</h5>
+                    <p><strong>Name:</strong> Student Name</p>
+                    <p><strong>University:</strong> Malla Reddy University</p>
+                    <p><strong>Department:</strong> Computer Science</p>
+                    <p><strong>Year:</strong> B.Tech First Year</p>
+                    <p><strong>Roll Number:</strong> MRU001</p>
+                    <p class="text-muted small">Sample student information.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICE MODAL -->
+    <div class="modal fade" id="serviceModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="serviceTitle">Service</h5>
+                    <button type="button" class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body" id="serviceBody">
+                    Service details will appear here.
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary"
+                        data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <h5>MALLA REDDY UNIVERSITY</h5>
+    <p class="mb-0">Student Dashboard | All Rights Reserved © 2026</p>
+</footer>
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CUSTOM JAVASCRIPT -->
+<script>
+
+    // Welcome message
+    function showMessage() {
+        alert("Welcome to Malla Reddy University Student Dashboard!");
+    }
+
+    // Fee reminder
+    function showFeeMessage() {
+        alert("This is a demo dashboard. Please contact the accounts department for actual fee details.");
+    }
+
+    // Student service modal
+    function openService(event, serviceName) {
+        event.preventDefault();
+
+        document.getElementById("serviceTitle").innerText =
+            serviceName + " Services";
+
+        document.getElementById("serviceBody").innerText =
+            "Welcome to " + serviceName +
+            " Services. For more information, please contact the university administration.";
+
+        let modal = new bootstrap.Modal(
+            document.getElementById("serviceModal")
+        );
+
+        modal.show();
+    }
+
+</script>
+
+</body>
+</html>
