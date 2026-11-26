@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MRU Student Service Portal</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f2f5fa;
+}
+
+header {
+    background: #123b70;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+nav {
+    background: #e67e22;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 15px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px #ccc;
+}
+
+h2 {
+    color: #123b70;
+    text-align: center;
+}
+
+button {
+    background: #123b70;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background: #e67e22;
+}
+
+.service-form {
+    display: none;
+}
+
+.service-form.active {
+    display: block;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 100%;
+    margin: 15px 0;
+}
+
+#message {
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #123b70;
+    color: white;
+}
+
+footer {
+    background: #123b70;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media(max-width:600px) {
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MALLA REDDY UNIVERSITY</h1>
+    <p>Online Student Service Portal</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#records">Applications</a>
+</nav>
+
+<main class="container" id="home">
+
+<section class="box" id="services">
+
+<h2>Select Student Service</h2>
+
+<button type="button" onclick="showForm('leaveForm')">
+Leave Request
+</button>
+
+<button type="button" onclick="showForm('bonafideForm')">
+Bonafide Certificate
+</button>
+
+<button type="button" onclick="showForm('courseForm')">
+Course Registration
+</button>
+
+<!-- Leave Form -->
+<form id="leaveForm" class="service-form">
+
+<h2>Leave Request Form</h2>
+
+<div class="form-group">
+<label>Student Name:</label>
+<input type="text" id="leaveName" required>
+</div>
+
+<div class="form-group">
+<label>Roll Number:</label>
+<input type="text" id="leaveRoll" required>
+</div>
+
+<div class="form-group">
+<label>From Date:</label>
+<input type="date" id="fromDate" required>
+</div>
+
+<div class="form-group">
+<label>To Date:</label>
+<input type="date" id="toDate" required>
+</div>
+
+<div class="form-group">
+<label>Reason:</label>
+<textarea id="leaveReason" required></textarea>
+</div>
+
+<button class="submit-btn" type="submit">
+Submit Leave Request
+</button>
+
+</form>
+
+<!-- Bonafide Form -->
+<form id="bonafideForm" class="service-form">
+
+<h2>Bonafide Certificate Application</h2>
+
+<div class="form-group">
+<label>Student Name:</label>
+<input type="text" id="bonaName" required>
+</div>
+
+<div class="form-group">
+<label>Roll Number:</label>
+<input type="text" id="bonaRoll" required>
+</div>
+
+<div class="form-group">
+<label>Department:</label>
+<select id="bonaDept" required>
+<option value="">Select Department</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>Mechanical</option>
+<option>Civil</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Purpose:</label>
+<select id="purpose" required>
+<option value="">Select Purpose</option>
+<option>Scholarship</option>
+<option>Bank Account</option>
+<option>Passport</option>
+<option>Internship</option>
+<option>Other</option>
+</select>
+</div>
+
+<button class="submit-btn" type="submit">
+Apply for Bonafide
+</button>
+
+</form>
+
+<!-- Course Registration Form -->
+<form id="courseForm" class="service-form">
+
+<h2>Elective Course Registration</h2>
+
+<div class="form-group">
+<label>Student Name:</label>
+<input type="text" id="courseName" required>
+</div>
+
+<div class="form-group">
+<label>Roll Number:</label>
+<input type="text" id="courseRoll" required>
+</div>
+
+<div class="form-group">
+<label>Department:</label>
+<select id="courseDept" required>
+<option value="">Select Department</option>
+<option>CSE</option>
+<option>ECE</option>
+<option>EEE</option>
+<option>Mechanical</option>
+<option>Civil</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Select Elective Course:</label>
+<select id="elective" required>
+<option value="">Select Course</option>
+<option>Artificial Intelligence</option>
+<option>Machine Learning</option>
+<option>Data Science</option>
+<option>Cyber Security</option>
+<option>Cloud Computing</option>
+</select>
+</div>
+
+<button class="submit-btn" type="submit">
+Register Course
+</button>
+
+</form>
+
+<p id="message" role="status" aria-live="polite"></p>
+
+</section>
+
+<!-- Application Records -->
+<section class="box" id="records">
+
+<h2>Submitted Applications</h2>
+
+<div style="overflow-x:auto;">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Roll Number</th>
+<th>Service</th>
+<th>Details</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="recordsTable"></tbody>
+
+</table>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<h3>MALLA REDDY UNIVERSITY</h3>
+<p>Online Student Service Portal</p>
+<p>&copy; 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+
+// Array to store applications
+let applications = [];
+
+// Function to show selected form
+function showForm(formId) {
+
+    let forms = document.querySelectorAll(".service-form");
+
+    forms.forEach(function(form) {
+        form.classList.remove("active");
+    });
+
+    document.getElementById(formId).classList.add("active");
+
+    document.getElementById("message").textContent = "";
+}
+
+// Function to add application
+function addApplication(name, roll, type, details) {
+
+    let application = {
+        name: name,
+        roll: roll,
+        type: type,
+        details: details,
+        status: "Submitted"
+    };
+
+    applications.push(application);
+
+    displayApplications();
+
+    document.getElementById("message").style.color = "green";
+
+    document.getElementById("message").textContent =
+        "Application submitted successfully!";
+}
+
+// Leave form
+document.getElementById("leaveForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("leaveName").value.trim();
+    let roll = document.getElementById("leaveRoll").value.trim();
+    let from = document.getElementById("fromDate").value;
+    let to = document.getElementById("toDate").value;
+    let reason = document.getElementById("leaveReason").value.trim();
+
+    if (to < from) {
+        showError("To date cannot be earlier than from date.");
+        return;
+    }
+
+    let details = "From: " + from +
+                  ", To: " + to +
+                  ", Reason: " + reason;
+
+    addApplication(name, roll, "Leave Request", details);
+
+    this.reset();
+});
+
+// Bonafide form
+document.getElementById("bonafideForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("bonaName").value.trim();
+    let roll = document.getElementById("bonaRoll").value.trim();
+    let dept = document.getElementById("bonaDept").value;
+    let purpose = document.getElementById("purpose").value;
+
+    let details = "Department: " + dept +
+                  ", Purpose: " + purpose;
+
+    addApplication(name, roll, "Bonafide Certificate", details);
+
+    this.reset();
+});
+
+// Course registration form
+document.getElementById("courseForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let name = document.getElementById("courseName").value.trim();
+    let roll = document.getElementById("courseRoll").value.trim();
+    let dept = document.getElementById("courseDept").value;
+    let course = document.getElementById("elective").value;
+
+    // Check duplicate registration
+    let duplicate = applications.some(function(app) {
+        return app.roll.toLowerCase() === roll.toLowerCase()
+        && app.type === "Course Registration";
+    });
+
+    if (duplicate) {
+        showError("You have already registered a course.");
+        return;
+    }
+
+    let details = "Department: " + dept +
+                  ", Course: " + course;
+
+    addApplication(name, roll, "Course Registration", details);
+
+    this.reset();
+});
+
+// Display applications
+function displayApplications() {
+
+    let table = document.getElementById("recordsTable");
+
+    table.innerHTML = "";
+
+    for (let i = 0; i < applications.length; i++) {
+
+        let app = applications[i];
+
+        let row = document.createElement("tr");
+
+        let values = [
+            app.name,
+            app.roll,
+            app.type,
+            app.details,
+            app.status
+        ];
+
+        values.forEach(function(value) {
+
+            let cell = document.createElement("td");
+
+            cell.textContent = value;
+
+            row.appendChild(cell);
+
+        });
+
+        table.appendChild(row);
+    }
+}
+
+// Error message function
+function showError(errorMessage) {
+
+    let message = document.getElementById("message");
+
+    message.style.color = "red";
+
+    message.textContent = errorMessage;
+}
+
+</script>
+
+</body>
+</html>
